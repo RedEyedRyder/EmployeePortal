@@ -17,8 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/leave/overview', 'LeaveController@overview');
 
 Route::get('/leave/apply', 'LeaveController@apply');
+
+Route::get('/dashboard', 'DashboardController@index')->middleware('auth');
