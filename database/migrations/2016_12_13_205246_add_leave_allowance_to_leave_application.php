@@ -14,8 +14,8 @@ class AddLeaveAllowanceToLeaveApplication extends Migration
     public function up()
     {
         Schema::table('leave_applications', function (Blueprint $table) {
-            $table->integer('leave_allowance_id')->unsigned()->after('return_date');
-            $table->foreign('leave_allowance_id')->references('id')->on('leave_allowances');
+            $table->integer('leave_type_id')->unsigned()->after('return_date');
+            $table->foreign('leave_type_id')->references('id')->on('leave_types');
         });
     }
 
@@ -27,8 +27,8 @@ class AddLeaveAllowanceToLeaveApplication extends Migration
     public function down()
     {
         Schema::table('leave_applications', function (Blueprint $table) {
-            $table->dropForeign('leave_applications_leave_allowance_id_foreign');
-            $table->dropColumn('leave_allowance_id');
+            $table->dropForeign('leave_applications_leave_type_id_foreign');
+            $table->dropColumn('leave_type_id');
         });
     }
 }
