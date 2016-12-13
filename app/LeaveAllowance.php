@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LeaveAllowance extends Model
+class LeaveType extends Model
 {
     /**
      * Indicates if the model should be timestamped.

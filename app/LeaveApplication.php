@@ -29,6 +29,6 @@ class LeaveApplication extends Model
      */
     public function leaveAllowance()
     {
-        return $this->belongsTo('App\LeaveAllowance');
+        return $this->belongsTo('App\LeaveType');
     }
 }
