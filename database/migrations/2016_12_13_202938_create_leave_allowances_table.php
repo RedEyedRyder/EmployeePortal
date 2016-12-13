@@ -27,6 +27,6 @@ class CreateLeaveAllowancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leave_allowances');
+        Schema::dropIfExists('leave_types');
     }
 }
