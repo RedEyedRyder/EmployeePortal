@@ -23,4 +23,12 @@ class LeaveApplication extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+     /**
+     * Get the user that Applied for the leave.
+     */
+    public function leaveAllowance()
+    {
+        return $this->belongsTo('App\LeaveAllowance');
+    }
 }

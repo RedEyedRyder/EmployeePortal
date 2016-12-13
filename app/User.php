@@ -39,7 +39,7 @@ class User extends Authenticatable
     /**
      * Get the leave applications for the user.
      */
-    public function leaveApplication()
+    public function leaveApplications()
     {
         return $this->hasMany('App\LeaveApplication');
     }
