@@ -35,4 +35,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    /**
+     * Get the leave applications for the user.
+     */
+    public function leaveApplication()
+    {
+        return $this->hasMany('App\LeaveApplication');
+    }
 }
