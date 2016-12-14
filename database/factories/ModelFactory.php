@@ -16,12 +16,14 @@ use Carbon\Carbon;
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
+    $faker->addProvider(new Faker\Provider\en_ZA\Person($faker));
 
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'id_number' => $faker->numerify($string = '#############'),
+        // 'id_number' => $faker->numerify($string = '#############'),
+        'id_number' => $faker->idNumber(),
         'remember_token' => str_random(10),
     ];
 });
@@ -43,8 +45,10 @@ $factory->define(App\LeaveApplication::class, function (Faker\Generator $faker) 
 });
 
 $factory->define(App\LeaveType::class, function (Faker\Generator $faker) {
+    $faker->addProvider(new Faker\Provider\Lorem($faker));
+
     return [
-        'type' => $faker->numberBetween(0, 2),
+        'type' => $faker->word(),
         'days' => $faker->numberBetween(10, 15)
     ];
 });
