@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/leave/overview', 'LeaveController@overview');
-
 Route::get('/leave/apply', 'LeaveController@apply');
+Route::get('/leave/overview', 'LeaveController@overview');
+Route::post('/leave/apply', 'LeaveController@submit');
 
 Route::get('/dashboard', 'DashboardController@index');

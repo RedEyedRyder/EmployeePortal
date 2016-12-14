@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth;
 
 class LeaveController extends Controller
 {
@@ -24,7 +26,7 @@ class LeaveController extends Controller
      */
     public function overview()
     {
-        return 'Leave Overview';
+        return view('leave.overview');
     }
 
     /**
@@ -34,7 +36,51 @@ class LeaveController extends Controller
      */
     public function apply()
     {
-        return 'Leave Application';
+        $leave_types = \App\LeaveType::all();
+        return view('leave.apply', ["leave_types" => $leave_types]);
+    }
+
+    /**
+     * Proccess the Leave application form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function submit(Request $request)
+    {
+        // Get the currently authenticated user's ID...
+        $user_id = \Auth::id();
+
+        //Validate request data
+        $this->validate($request, [
+            'start_date' => 'bail|required|date',
+            'start_date_time' => 'required|in:am,pm',
+            'return_date' => 'required|date',
+            'return_date_time' => 'required|in:am,pm',
+            'leave_type' => 'required|int'
+        ]);
+
+        //Save Data to the Database
+        $leaveApplication = new \App\LeaveApplication;
+        $start_date = Carbon::parse($request->start_date);
+        if($request->start_date_time == 'pm'){
+            $start_date->addHours('12');
+        }
+        $return_date = Carbon::parse($request->return_date);
+        if($request->return_date_time == 'pm'){
+            $return_date->addHours('12');
+        }
+        $days = $start_date->diffInHours($return_date) / 24;
+
+        $leaveApplication->user_id = $user_id;
+        $leaveApplication->start_date = $start_date;
+        $leaveApplication->return_date = $return_date;
+        $leaveApplication->leave_type_id = $request->leave_type;
+        $leaveApplication->days = $days;
+
+        $leaveApplication->save();
+        //Create Flash Variable
+
+        //Redirect to route
     }
 
 

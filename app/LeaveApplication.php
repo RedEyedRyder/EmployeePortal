@@ -8,7 +8,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class LeaveApplication extends Model
 {
     use SoftDeletes;
-
+    
+    protected $attributes = [
+        'status' => 0
+    ];
 	/**
      * The attributes that should be mutated to dates.
      *

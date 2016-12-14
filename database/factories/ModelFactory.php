@@ -22,8 +22,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        // 'id_number' => $faker->numerify($string = '#############'),
-        'id_number' => $faker->idNumber(),
+        'id_number' => $faker->numerify($string = '#############'),
+        // 'id_number' => $faker->idNumber(),
         'remember_token' => str_random(10),
     ];
 });
@@ -39,7 +39,7 @@ $factory->define(App\LeaveApplication::class, function (Faker\Generator $faker) 
             return factory(App\LeaveType::class)->create()->id;
         },
         'days' => $faker->randomDigitNotNull,
-        'starts_date' => $date->format('Y-m-d H:i:s'),
+        'start_date' => $date->format('Y-m-d H:i:s'),
         'return_date' => $date->addDays(rand(1, 10))->format('Y-m-d H:i:s')
     ];
 });
