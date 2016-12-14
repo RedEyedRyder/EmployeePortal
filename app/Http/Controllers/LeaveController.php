@@ -78,9 +78,8 @@ class LeaveController extends Controller
         $leaveApplication->days = $days;
 
         $leaveApplication->save();
-        //Create Flash Variable
-
         //Redirect to route
+        return redirect('dashboard')->with('success', 'Your leave has been submitted, you will be notified when your leave has been processed.');
     }
 
 
