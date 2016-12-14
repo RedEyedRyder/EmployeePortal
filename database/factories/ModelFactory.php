@@ -33,9 +33,18 @@ $factory->define(App\LeaveApplication::class, function (Faker\Generator $faker) 
             return factory(App\User::class)->create()->id;
         },
         'status' => $faker->numberBetween(0, 2),
-        'leave_type_id' => $faker->numberBetween(0, 2),
+        'leave_type_id' => function () {
+            return factory(App\LeaveType::class)->create()->id;
+        },
         'days' => $faker->randomDigitNotNull,
         'starts_date' => $date->format('Y-m-d H:i:s'),
         'return_date' => $date->addDays(rand(1, 10))->format('Y-m-d H:i:s')
+    ];
+});
+
+$factory->define(App\LeaveType::class, function (Faker\Generator $faker) {
+    return [
+        'type' => $faker->numberBetween(0, 2),
+        'days' => $faker->numberBetween(10, 15)
     ];
 });
