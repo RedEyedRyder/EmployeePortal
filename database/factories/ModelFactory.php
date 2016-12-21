@@ -29,7 +29,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\LeaveApplication::class, function (Faker\Generator $faker) {
-	$date = Carbon::create(2016, 5, 28, 0, 0, 0);
+	$date = Carbon::create(2016, 12, 28, 0, 0, 0);
     return [
         'user_id' => function () {
             return factory(App\User::class)->create()->id;

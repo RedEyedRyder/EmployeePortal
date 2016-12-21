@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth;
+use App\LeaveApplication;
 
 class LeaveController extends Controller
 {
@@ -26,7 +27,12 @@ class LeaveController extends Controller
      */
     public function overview()
     {
-        return view('leave.overview');
+        $allLeave = \App\LeaveApplication::
+                            where('return_date','>', Carbon::now())
+                            ->where('status', '=', '1')
+                            ->get();
+
+        return view('leave.overview', ['leave' => $allLeave]);
     }
 
     /**

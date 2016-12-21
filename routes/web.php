@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/leave/apply', 'LeaveController@apply');
-Route::get('/leave/overview', 'LeaveController@overview');
 Route::post('/leave/apply', 'LeaveController@submit');
+Route::get('/leave/overview', 'LeaveController@overview');
 
+Route::get('/', 'DashboardController@index');
 Route::get('/dashboard', 'DashboardController@index');
