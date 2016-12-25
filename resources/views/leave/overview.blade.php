@@ -1,9 +1,9 @@
 @extends('layouts.app')
+@section('pageTitle', 'Leave Overview')
 
 @section('content')
-<div class="container">
     <div class="row">
-        <div class="col-md-12 ">
+        <div class="col">
             <div class="panel panel-default">
                 <div class="panel-heading">Upcomming Leave</div>
                 <div class="panel-body">
@@ -43,5 +43,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
