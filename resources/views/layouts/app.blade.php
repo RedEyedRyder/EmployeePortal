@@ -39,8 +39,8 @@
         <nav class="sidebar">
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/dashboard') }}"><span class="glyphicon glyphicon-th"></span>Dashboard</a></li>
-                <li><a href="{{ url('/leave/overview') }}">Leave Overview</a></li>
-                <li><a href="{{ url('/leave/apply') }}">Apply for Leave</a></li>
+                <li><a href="{{ url('/leave/overview') }}"><span class="glyphicon glyphicon-calendar"></span>Leave Overview</a></li>
+                <li><a href="{{ url('/leave/apply') }}"><span class="glyphicon glyphicon-sunglasses"></span>Apply for Leave</a></li>
             </ul>
         </nav>
         <section class="main-section">

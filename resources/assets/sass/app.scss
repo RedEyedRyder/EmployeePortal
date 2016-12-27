@@ -1,4 +1,13 @@
+//Variables
+
+// Required for Bootstrap 3 glyphicons
+$bootstrap-sass-asset-helper: false !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+$icon-font-name:          "glyphicons-halflings-regular" !default;
+$icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+
 // Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons";
 @import "node_modules/bootstrap/scss/bootstrap";
 
 html, body {
@@ -40,7 +49,7 @@ nav.sidebar {
         display: block;
         font-size: 0.75em;
         font-weight: bold;
-        padding: 1em 3em;
+        padding: 1em 3em 1em 1em;
         line-height: 1;
         color: #eee;
         border-bottom: 1px solid #222;
@@ -48,6 +57,10 @@ nav.sidebar {
 
         &:hover {
             background-color: #444;
+        }
+
+        & .glyphicon {
+            margin-right: 0.7em;
         }
     }
 }
