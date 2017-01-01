@@ -65,6 +65,7 @@ Homestead.json
 .env
 composer.phar
 composer.lock
+public/build/
 
 
 ### SublimeText ###

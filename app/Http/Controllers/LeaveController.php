@@ -84,8 +84,9 @@ class LeaveController extends Controller
         $leaveApplication->days = $days;
 
         $leaveApplication->save();
+        
         //Redirect to route
-        return redirect('dashboard')->with('success', 'Your leave has been submitted, you will be notified when your leave has been processed.');
+        return redirect('/leave/overview')->with('success', 'Your leave has been submitted, you will be notified when your leave has been processed.');
     }
 
 

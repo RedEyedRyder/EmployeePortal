@@ -2,7 +2,7 @@
 
 // Required for Bootstrap 3 glyphicons
 $bootstrap-sass-asset-helper: false !default;
-$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../../fonts/bootstrap/") !default;
 $icon-font-name:          "glyphicons-halflings-regular" !default;
 $icon-font-svg-id:        "glyphicons_halflingsregular" !default;
 
